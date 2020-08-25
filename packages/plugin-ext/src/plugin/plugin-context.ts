@@ -206,8 +206,8 @@ export function createAPIFactory(
             get providerIds(): string[] {
                 return authenticationExt.providerIds;
             },
-            hasSessions(providerId: string, scopes: string[]): Thenable<boolean> {
-                return authenticationExt.hasSessions(providerId, scopes);
+            get providers(): ReadonlyArray<theia.AuthenticationProviderInformation> {
+                return authenticationExt.providers;
             },
             getSession(providerId: string, scopes: string[], options: theia.AuthenticationGetSessionOptions) {
                 return authenticationExt.getSession(plugin, providerId, scopes, options as any);
@@ -215,7 +215,7 @@ export function createAPIFactory(
             logout(providerId: string, sessionId: string): Thenable<void> {
                 return authenticationExt.logout(providerId, sessionId);
             },
-            get onDidChangeSessions(): theia.Event<{ [providerId: string]: theia.AuthenticationSessionsChangeEvent }> {
+            get onDidChangeSessions(): theia.Event<theia.AuthenticationSessionsChangeEvent> {
                 return authenticationExt.onDidChangeSessions;
             }
         };
@@ -831,7 +831,6 @@ export function createAPIFactory(
             ViewColumn: ViewColumn,
             TextEditorSelectionChangeKind: TextEditorSelectionChangeKind,
             Uri: Uri,
-            AuthenticationSession,
             EndOfLine,
             TextEditorRevealType,
             TextEditorCursorStyle,
