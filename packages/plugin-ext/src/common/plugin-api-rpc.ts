@@ -81,10 +81,12 @@ import { QuickTitleButton } from '@theia/core/lib/common/quick-open-model';
 import * as files from '@theia/filesystem/lib/common/files';
 import { BinaryBuffer } from '@theia/core/lib/common/buffer';
 import { ResourceLabelFormatter } from '@theia/core/lib/common/label-protocol';
-import {
-    AuthenticationProviderInformation,
-    AuthenticationSessionsChangeEvent
-} from '@theia/core/lib/browser/authentication-service';
+import type {
+    InternalTimelineOptions,
+    Timeline,
+    TimelineChangeEvent,
+    TimelineProviderDescriptor
+} from '@theia/timeline/lib/common/timeline-model';
 
 export interface PreferenceData {
     [scope: number]: any;

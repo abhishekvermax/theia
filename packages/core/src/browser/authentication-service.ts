@@ -25,7 +25,7 @@ import { Emitter, Event } from '../common/event';
 import { StorageService } from '../browser/storage-service';
 import { Disposable } from '../common/disposable';
 import { ACCOUNTS_MENU, ACCOUNTS_SUBMENU, MenuModelRegistry } from '../common/menu';
-import { CommandRegistry } from '../common/command';
+import { Command, CommandRegistry } from '../common/command';
 import { DisposableCollection } from '../common/disposable';
 
 export interface AuthenticationSessionsChangeEvent {
@@ -103,6 +103,7 @@ export interface AuthenticationService {
 @injectable()
 export class AuthenticationServiceImpl implements AuthenticationService {
     private noAccountsMenuItem: Disposable | undefined;
+    private noAccountsCommand: Command = { id: 'noAccounts' };
     private signInRequestItems = new Map<string, SessionRequestInfo>();
 
     private authenticationProviders: Map<string, AuthenticationProvider> = new Map<string, AuthenticationProvider>();
@@ -159,7 +160,7 @@ export class AuthenticationServiceImpl implements AuthenticationService {
                 });
             }
         });
-        this.commands.registerCommand({ id: 'noAccounts'}, {
+        this.commands.registerCommand(this.noAccountsCommand, {
             execute: async () => {},
             isEnabled(): boolean {
                 return false;
@@ -194,7 +195,7 @@ export class AuthenticationServiceImpl implements AuthenticationService {
             this.noAccountsMenuItem = this.menus.registerMenuAction(ACCOUNTS_MENU, {
                 label: 'You are not signed in to any accounts',
                 order: '0',
-                commandId: 'noAccounts'
+                commandId: this.noAccountsCommand.id
             });
         }
     }
@@ -293,7 +294,7 @@ export class AuthenticationServiceImpl implements AuthenticationService {
                 commandId: `${extensionId}signIn`,
             });
 
-            const signInCommand = this.commands.registerCommand({ id: `${extensionId}signIn`}, {
+            const signInCommand = this.commands.registerCommand({ id: `${extensionId}signIn` }, {
                 execute: async () => {
                     const session = await this.login(providerId, scopes);
 
