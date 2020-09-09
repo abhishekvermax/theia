@@ -39,6 +39,14 @@ export namespace GIT_COMMANDS {
         id: 'git.clone',
         label: 'Git: Clone...'
     };
+    export const SCALASPARKCLONE = {
+        id: 'git.scalasparkclone',
+        label: 'Git: scalasparkclone...'
+    };
+    export const PYSPARKCLONE = {
+        id: 'git.pysparkclone',
+        label: 'Git: pysparkclone...'
+    };
     export const FETCH = {
         id: 'git.fetch',
         label: 'Git: Fetch...'
@@ -395,6 +403,16 @@ export class GitContribution implements CommandContribution, MenuContribution, T
             isVisible: () => this.syncService.canPublish()
         });
         registry.registerCommand(GIT_COMMANDS.CLONE, {
+            isEnabled: () => this.workspaceService.opened,
+            execute: (url?: string, folder?: string, branch?: string) =>
+                this.quickOpenService.clone(url, folder, branch)
+        });
+        registry.registerCommand(GIT_COMMANDS.SCALASPARKCLONE, {
+            isEnabled: () => this.workspaceService.opened,
+            execute: (url?: string, folder?: string, branch?: string) =>
+                this.quickOpenService.clone(url, folder, branch)
+        });
+        registry.registerCommand(GIT_COMMANDS.PYSPARKCLONE, {
             isEnabled: () => this.workspaceService.opened,
             execute: (url?: string, folder?: string, branch?: string) =>
                 this.quickOpenService.clone(url, folder, branch)
