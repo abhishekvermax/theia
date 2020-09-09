@@ -41,15 +41,15 @@ export namespace GIT_COMMANDS {
     };
     export const SCALASPARKCLONE = {
         id: 'git.scalasparkclone',
-        label: 'Create SCALA SPARK ETL Pipeline'
+        label: 'SCALA SPARK ETL Pipeline'
     };
     export const PYSPARKCLONE = {
         id: 'git.pysparkclone',
-        label: 'Create PYSPARK ETL Pipeline'
+        label: 'PYSPARK ETL Pipeline'
     };
     export const SQLSPARKCLONE = {
         id: 'git.sqlsparkclone',
-        label: 'Create SQL SPARK ETL Pipeline'
+        label: 'SQL SPARK ETL Pipeline'
     };
     export const FETCH = {
         id: 'git.fetch',

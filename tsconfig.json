@@ -168,6 +168,18 @@
       ],
       "@theia/timeline/*": [
         "packages/timeline/*"
+      ],
+      "@theia/theia-custom-api-tests/*": [
+        "custom-data-engineering-ide/theia-custom-api-tests/*"
+      ],
+      "@theia/theia-custom-api/lib/*": [
+        "custom-data-engineering-ide/theia-custom-api/src/*"
+      ],
+      "@theia/custom-data-engineering-ide-browser/*": [
+        "custom-data-engineering-ide/browser/*"
+      ],
+      "@theia/custom-data-engineering-ide-electron/*": [
+        "custom-data-engineering-ide/electron/*"
       ]
     }
   }

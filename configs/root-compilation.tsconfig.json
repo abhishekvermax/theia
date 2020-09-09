@@ -131,10 +131,10 @@
       "path": "../packages/timeline/compile.tsconfig.json"
     },
     {
-      "path": "../custom-data-engineering-ide/api-samples/compile.tsconfig.json"
+      "path": "../custom-data-engineering-ide/electron/compile.tsconfig.json"
     },
     {
-      "path": "../custom-data-engineering-ide/electron/compile.tsconfig.json"
+      "path": "../custom-data-engineering-ide/theia-custom-api/compile.tsconfig.json"
     }
   ]
 }

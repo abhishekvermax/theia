@@ -28,7 +28,7 @@ const SampleCommand3: Command = {
 };
 
 @injectable()
-export class SampleMenuContribution implements MenuContribution {
+export class CustomDeMenuContribution implements MenuContribution {
     registerMenus(menus: MenuModelRegistry): void {
         const subMenuPath = [...MAIN_MENU_BAR, 'data-engineering-menu'];
         menus.registerSubmenu(subMenuPath, 'Data Engineering', {
@@ -72,7 +72,7 @@ export class PlaceholderMenuNode implements MenuNode {
 
 }
 
-export const bindSampleMenu = (bind: interfaces.Bind) => {
+export const bindCustomDEMenu = (bind: interfaces.Bind) => {
     // bind(CommandContribution).to(SampleCommandContribution).inSingletonScope();
-    bind(MenuContribution).to(SampleMenuContribution).inSingletonScope();
+    bind(MenuContribution).to(CustomDeMenuContribution).inSingletonScope();
 };
