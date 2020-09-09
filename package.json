@@ -54,7 +54,7 @@
     "watch": "tsc -b configs/root-compilation.tsconfig.json -w",
     "lint": "run lint",
     "lint:clean": "rimraf .eslintcache",
-    "lint:oneshot": "node --max-old-space-size=4096 node_modules/eslint/bin/eslint.js --cache=true \"{dev-packages,packages,examples}/**/*.{ts,tsx}\"",
+    "lint:oneshot": "node --max-old-space-size=4096 node_modules/eslint/bin/eslint.js --cache=true \"{dev-packages,packages,custom-data-engineering-ide}/**/*.{ts,tsx}\"",
     "docs": "rimraf gh-pages/docs/next && typedoc --tsconfig configs/typedoc-tsconfig.json --options configs/typedoc.json",
     "test": "yarn test:references && yarn test:theia && yarn test:electron && yarn test:browser",
     "test:references": "node scripts/compile-references --dry-run",
@@ -70,14 +70,14 @@
     "publish:next": "yarn next:publish && yarn next:publish --skip-npm && yarn publish:check",
     "next:publish": "lerna publish --exact --canary=next --npm-tag=next --yes",
     "publish:check": "node scripts/check-publish.js",
-    "start:browser": "yarn rebuild:browser && yarn --cwd examples/browser start",
-    "start:electron": "yarn rebuild:electron && yarn --cwd examples/electron start",
+    "start:browser": "yarn rebuild:browser && yarn --cwd custom-data-engineering-ide/browser start",
+    "start:electron": "yarn rebuild:electron && yarn --cwd custom-data-engineering-ide/electron start",
     "download:plugins": "theia download:plugins"
   },
   "workspaces": [
     "dev-packages/*",
     "packages/*",
-    "examples/*"
+    "custom-data-engineering-ide/*"
   ],
   "theiaPluginsDir": "plugins",
   "theiaPlugins": {
