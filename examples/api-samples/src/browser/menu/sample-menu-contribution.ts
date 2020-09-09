@@ -23,6 +23,9 @@ const SampleCommand: Command = {
 const SampleCommand2: Command = {
     id: 'git.pysparkclone'
 };
+const SampleCommand3: Command = {
+    id: 'git.sqlsparkclone'
+};
 
 @injectable()
 export class SampleMenuContribution implements MenuContribution {
@@ -41,6 +44,10 @@ export class SampleMenuContribution implements MenuContribution {
         menus.registerMenuAction(subSubMenuPath, {
             commandId: SampleCommand2.id,
             order: '3'
+        });
+        menus.registerMenuAction(subSubMenuPath, {
+            commandId: SampleCommand3.id,
+            order: '4'
         });
         const placeholder = new PlaceholderMenuNode([...subSubMenuPath, 'placeholder'].join('-'), 'Project Types', { order: '0' });
         menus.registerMenuNode(subSubMenuPath, placeholder);
